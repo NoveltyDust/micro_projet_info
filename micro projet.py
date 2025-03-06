@@ -1,13 +1,17 @@
 
 
-def polygone():
-    cote = list(range(100))
+def polygone(N):
     liste_poly = []
-    for a in range(len(cote)):  
-        for b in range(a, len(cote)):  
-            for c in range(b, len(cote)):  
-                for d in range(c, len(cote)):  
-                    liste_poly.append((cote[a], cote[b], cote[c], cote[d]))
+    for a in range(1,N):  
+        for b in range(a, N):  
+            for c in range(b, N):  
+                for d in range(c, N):
+                    if a + b + c > d:
+                        liste_poly.append((a, b, c, d))
+                        if a !=b and c != d :
+                            liste_poly.append((a, b, d, c))
+                        if b != c :
+                            liste_poly.append((a, b, d, c))                         
 
     return(liste_poly)
 
