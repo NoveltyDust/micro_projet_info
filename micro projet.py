@@ -18,7 +18,7 @@ def polygone(N):
                             n=n+1
     return(liste_poly)
 
-list=polygone()
+#list=polygone()
 poly = (17,1,78,98)
 
 def verif(L,poly): 
@@ -27,5 +27,5 @@ def verif(L,poly):
     else:
         print("Pas trouvé.")
 
-verif(list,poly)
-print(len(list))
+#verif(list,poly)
+#print(len(list))
