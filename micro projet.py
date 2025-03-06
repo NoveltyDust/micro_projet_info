@@ -17,9 +17,8 @@ def polygone(N):
                             liste_poly.append((a, b, d, c)) 
                             n=n+1
     return(liste_poly)
-
-list=polygone()
-poly = (17,1,78,98)
+    
+N=5
 
 def verif(L,poly): 
     if poly in L:
@@ -28,4 +27,4 @@ def verif(L,poly):
         print("Pas trouvé.")
 
 verif(list,poly)
-print(len(list))
+print(polygone(N))
