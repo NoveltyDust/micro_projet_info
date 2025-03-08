@@ -6,7 +6,7 @@ def diagonale(poly):
     
     for e in range(1, min(a + b, c + d)):
         p1 = (a + b + e) / 2  # Demi-périmètre
-        p2 = (c + d + e) / 2  # Demi-périmètre
+        p2 = (c + d + e) / 2  
 
         try:
             aire_abe = sqrt(p1 * (p1 - a) * (p1 - b) * (p1 - e))
