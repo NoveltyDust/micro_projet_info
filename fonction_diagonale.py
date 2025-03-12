@@ -1,6 +1,9 @@
 from math import sqrt
 
 def diagonale(poly):
+    """fonction qui calcule la longeur des diagonales d'un quadrilatère
+    entrée: tuple
+    sortie: liste de tuples"""
     a, b, c, d = poly
     liste_ef = []
     
