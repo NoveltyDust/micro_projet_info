@@ -6,8 +6,8 @@ def diagonale(poly):
     sortie: liste de tuples"""
     a, b, c, d = poly
     liste_ef = []
-    
-    for e in range(1, min(a + b, c + d)):
+    e = abs(b-a)
+    while e < min(a + b, c + d):
         p1 = (a + b + e) / 2  # Demi-périmètre
         p2 = (c + d + e) / 2  
 
