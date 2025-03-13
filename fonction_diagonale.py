@@ -20,8 +20,9 @@ def diagonale(poly):
             
             if 0 < f < min(a + d, b + c):
                 liste_ef.append((e, f))
+                e+=0.1
         except ValueError:
             # Gestion des erreurs mathématiques si sqrt reçoit une valeur négative
             continue  
-
+        e+=0.1
     return liste_ef
