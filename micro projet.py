@@ -20,14 +20,4 @@ def polygone(N):
     
 N=5
 
-#list=polygone()
 poly = (17,1,78,98)
-
-def verif(L,poly): 
-    if poly in L:
-        print("Trouvé !")
-    else:
-        print("Pas trouvé.")
-
-#verif(list,poly)
-#print(len(list))
