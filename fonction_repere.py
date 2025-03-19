@@ -1,7 +1,8 @@
 """Fonction repere : détermine les coordonnées des sommets d'un quadrilatère ABCD
-petit dessin : C_____b_____D
-              c \           \ a
-                A_____d______B"""
+petit dessin :  C_____b_____D
+              c |            |a
+                A_____d______B
+"""
 
 from math import sqrt
 from fonction_diagonale import diagonale
@@ -31,7 +32,7 @@ def test_repere(polygone):
     for e, f in l_diagonale:
         coords = repere(polygone, e, f)
         if coords:
-            print(coords)
+            return (coords)
 
 test_repere((1, 2, 3, 4))
 

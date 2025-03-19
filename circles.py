@@ -1,5 +1,6 @@
 from math import sqrt
 import matplotlib.pyplot as plt
+from fonction_repere import test_repere
 
 def check_intersections(poly):
     a = max(poly)
@@ -31,7 +32,9 @@ def view_inter(inter, poly):
     plt.plot([A[0],B[0]],[A[1],B[1]],color="red")
     plt.scatter(*zip(*inter),color="red")
     plt.show()
-    
+
+
+
 poly = (5,5,6,4)
 intersect = check_intersections(poly)
 view_inter(intersect,poly)
