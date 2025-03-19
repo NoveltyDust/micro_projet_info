@@ -1,6 +1,7 @@
 from math import sqrt
 import matplotlib.pyplot as plt
-from fonction_repere import test_repere
+from fonction_repere import repere
+from fonction_diagonale import diagonale
 
 def check_intersections(poly):
     a = max(poly)
@@ -33,8 +34,14 @@ def view_inter(inter, poly):
     plt.scatter(*zip(*inter),color="red")
     plt.show()
 
+def compare(poly):
+    diag = diagonale(poly)[0]
+    a,b,c,d = repere(poly,*diag)
+    intersect = check_intersections(poly)
+    for inter in intersect:
+        print(inter,c,d)
+        if c==inter or d==inter:
+            print("appartient au cercles")
 
-
-poly = (5,5,6,4)
-intersect = check_intersections(poly)
-view_inter(intersect,poly)
+poly = (1,2,3,4)
+compare(poly)
