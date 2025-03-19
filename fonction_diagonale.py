@@ -18,6 +18,7 @@ def diagonale(poly):
 
             f = sqrt(16 * aire_abcd**2 + (b**2 + d**2 - a**2 - c**2)**2) / (2 * e)
             
+            
             if abs(d-c) < f < min(a + d, b + c):
                 liste_ef.append((e, f))
                 e+=0.1

@@ -14,7 +14,7 @@ def repere(polygone, e,f):
     polygone = sorted(polygone)
     a, b, c, d = polygone
     A = (0, 0)  
-    B = (0, d)  
+    B = (d,0)  
     
     s = (d*d - e*e + c*c) / (2 * d)  # Correction de la priorité des opérations
     t = sqrt(max(c*c - s*s, 0))  # Correction de la racine carrée
@@ -29,15 +29,14 @@ def repere(polygone, e,f):
     
 def test_repere(polygone):
     l_diagonale = diagonale(polygone)
+    coordon = []
     for e, f in l_diagonale:
         coords = repere(polygone, e, f)
         if coords:
-            return (coords)
+            coordon.append(coords)
+    return coordon
 
-test_repere((1, 2, 3, 4))
 
-
-"""
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
@@ -58,7 +57,7 @@ def afficher_quadrilatere_fix(polygone):
         return
 
     A, B, C, D = coords
-    quadrilatere = [A, B, C, D, A]  # Fermer le quadrilatère
+    quadrilatere = [A, B, D, C, A]  # Fermer le quadrilatère
 
     fig, ax = plt.subplots()
 
@@ -78,9 +77,3 @@ def afficher_quadrilatere_fix(polygone):
 
     plt.grid()
     plt.title("Quadrilatère Fixe")
-    plt.show()
-
-# Exemple avec un quadrilatère fixe
-afficher_quadrilatere_fix((1, 1, 1, 1))
-
-"""
