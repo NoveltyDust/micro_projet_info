@@ -26,11 +26,8 @@ def visualisation(a=tuple,b=tuple,c=tuple,d=tuple):
     print((d[1]-c[1])/(d[0]-c[0]))
     plt.show()
 
-def view_inter(inter, poly):
-    a = max(poly)
-    A = (0,0)
-    B = (a,0)
-    plt.plot([A[0],B[0]],[A[1],B[1]],color="red")
+def view_inter(inter, a, b):
+    plt.plot([a[0],b[0]],[a[1],b[1]],color="red")
     plt.scatter(*zip(*inter),color="red")
     plt.show()
 
@@ -38,6 +35,7 @@ def compare(poly):
     diag = diagonale(poly)[0]
     a,b,c,d = repere(poly,*diag)
     intersect = check_intersections(poly)
+    view_inter(intersect,a,b)
     for inter in intersect:
         print(inter,c,d)
         if c==inter or d==inter:
