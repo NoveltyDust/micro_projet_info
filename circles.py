@@ -23,3 +23,15 @@ def visualisation(a=tuple,b=tuple,c=tuple,d=tuple):
     plt.scatter(*zip(a,b,c,d),color="red")
     print((d[1]-c[1])/(d[0]-c[0]))
     plt.show()
+
+def view_inter(inter, poly):
+    a = max(poly)
+    A = (0,0)
+    B = (a,0)
+    plt.plot([A[0],B[0]],[A[1],B[1]],color="red")
+    plt.scatter(*zip(*inter),color="red")
+    plt.show()
+    
+poly = (5,5,6,4)
+intersect = check_intersections(poly)
+view_inter(intersect,poly)
