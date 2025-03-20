@@ -17,7 +17,5 @@ def polygone(N):
                             liste_poly.append((a, b, d, c)) 
                             n=n+1
     return(liste_poly)
-    
-N=5
 
 poly = (17,1,78,98)
