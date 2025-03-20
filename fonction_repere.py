@@ -1,42 +1,26 @@
-"""Fonction repere : détermine les coordonnées des sommets d'un quadrilatère ABCD
-petit dessin :  C_____b_____D
-              c |            |a
-                A_____d______B
+"""Fonction repere : détermine les coordonnées des sommets d'un rectangle ABCD
+petit dessin :  D_____a______C
+              b |            |b
+                A_____a______B
 """
 
 from math import sqrt
 from fonction_diagonale import diagonale
 
-def repere(polygone, e,f):
+def repere(polygone, e):
     """renvoie une liste contenant les coordonnées de chaque sommet d'un quadrilatere
-    entree : polygone(tuple), e(float), f(float)
-    sortie : coordonnes(list)"""
-    polygone = sorted(polygone)
-    a, b, c, d = polygone
+    entree : polygone(tuple), e(int)
+    sortie : coordonnes(tuple)"""
+    a, b = polygone
     A = (0, 0)  
-    B = (d,0)  
-    
-    s = (d*d - e*e + c*c) / (2 * d)  # Correction de la priorité des opérations
-    t = sqrt(max(c*c - s*s, 0))  # Correction de la racine carrée
-
-    C = (s, t)  
-    
-    u = (d*d - a*a + f*f) / (2 * d)  
-    v = sqrt(max(f*f - u*u, 0))  
-
-    D = (u, v)
+    B = (a, 0)        
+    C = (a, b)     
+    D = (0, b)
     return (A, B, C, D)
     
-def test_repere(polygone):
-    l_diagonale = diagonale(polygone)
-    coordon = []
-    for e, f in l_diagonale:
-        coords = repere(polygone, e, f)
-        if coords:
-            coordon.append(coords)
-    return coordon
 
 
+"""
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
@@ -57,7 +41,7 @@ def afficher_quadrilatere_fix(polygone):
         return
 
     A, B, C, D = coords
-    quadrilatere = [A, B, D, C, A]  # Fermer le quadrilatère
+    quadrilatere = [A, B, C, D, A]  # Fermer le quadrilatère
 
     fig, ax = plt.subplots()
 
@@ -76,4 +60,4 @@ def afficher_quadrilatere_fix(polygone):
     ax.set_aspect('equal')
 
     plt.grid()
-    plt.title("Quadrilatère Fixe")
+    plt.title("Quadrilatère Fixe")"""
