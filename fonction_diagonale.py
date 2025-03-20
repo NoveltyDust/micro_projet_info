@@ -5,6 +5,8 @@ def diagonale(poly):
     Entrée: tuple (a, b, a, b)
     Sortie: e (int)
     """
+    a = poly[0]
+    b = poly[1]
     e = sqrt(a*a + b*b)
     if type(e) == int:
         return e
