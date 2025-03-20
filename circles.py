@@ -31,15 +31,6 @@ def view_inter(inter, cote,y):
         plt.gca().add_patch(B)
     plt.grid()
 
-def compare(poly):
-    coords = test_repere(poly)
-    intersect = check_intersections(poly)
-    for coord in coords:
-        for inter in intersect:
-            print(inter,coord[2],coord[3])
-            if inter==coord[2] or inter==coord[3]:
-                print("appartient auc cercles")
-
 poly = (5,6,5,6)
 A = (0,0)
 B = (0,poly[0])
