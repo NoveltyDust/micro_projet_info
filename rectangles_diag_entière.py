@@ -8,7 +8,7 @@ def liste_rect(N):
         for b in range(a,N+1):
             e = sqrt(a**2+b**2)
             if int(e)==e :
-                rect.append((a,b,a,b))
+                rect.append((a,b))
 
     return rect
                 
