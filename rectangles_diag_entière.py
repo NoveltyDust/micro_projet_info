@@ -16,4 +16,4 @@ def rectangles_diag_entière(N):
 
     return liste_rect
 
-print(rectangles_diag_entière(100))
+print(rectangles_diag_entière(200))
