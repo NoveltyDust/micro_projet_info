@@ -1,19 +1,16 @@
+from math import sqrt
 
-import math
 
-def est_carré_parfait(n):
-    """Vérifie si n est un carré parfait"""
-    racine = int(math.sqrt(n))
-    return racine * racine == n
-
-def rectangles_diag_entière(N):
-    liste_rect = []
+def liste_rect(N):
+    rect = []
     
-    for a in range(1, N):
-        for b in range(a, N):  # On prend b ≥ a pour éviter les doublons
-            if est_carré_parfait(a * a + b * b):  # Vérifie si la diagonale est entière
-                liste_rect.append((a, b, a, b))  
+    for a in range(1,N):
+        for b in range(a,N+1):
+            e = sqrt(a**2+b**2)
+            if int(e)==e :
+                rect.append((a,b,a,b))
 
-    return liste_rect
+    return rect
+                
 
-print(rectangles_diag_entière(200))
+print(liste_rect(200))
