@@ -13,11 +13,7 @@ def repere(polygone):
     sortie : coordonnes(tuple)"""
     polygone = sorted(polygone, reverse=True)
     a, b = polygone
-    A = (0, 0)  
-    B = (a, 0)        
-    C = (a, b)     
-    D = (0, b)
-    return (A, B, C, D)
+    return (0, 0), (a, 0), (a, b), (0, b)
     
 
 
