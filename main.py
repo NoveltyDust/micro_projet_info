@@ -1,13 +1,14 @@
 """Fichier contenant le code central du projet"""
 from rectangles_diag_entière import liste_rect
-from circles import verif_inter_3_4 
-from circles import check_intersections
-import time
+from circles import verif_inter_3_4, check_intersections
+from time import time
+
+
 def calcul_sol(cote_lim, N,E):
     """Renvoie le nombre de rectangles ( de cotés <= cote_lim et de diagonales entiers) admettant exactement/au moins N arbres entiers.
     entree : cote_lim ,N (int); E(str) : pour indiquer si on veut au moins/exactement N points.
     sortie : chaine de caracteres indiquant le nombre de solution"""
-    start=time.time()
+    start=time()
     assert cote_lim > 1 and type(cote_lim) == int and E in ("exactement", "au moins")
     l_rectangle = liste_rect(cote_lim)
     nbr_solution = 0
@@ -24,8 +25,9 @@ def calcul_sol(cote_lim, N,E):
             l_solution = verif_inter_3_4(check_intersections(a,b), (a,b))
             if len(l_solution) >= N:
                 nbr_solution += 1                    
-    print(f"Chronomètre: {time.time()-start} s")        
+    print(f"Chronomètre: {time()-start} s")        
     return f"Le nombre de rectangles de côtés entiers inférieurs ou égals à {cote_lim} admettant {E} {N} solution est : {nbr_solution} parmi {len(l_rectangle)} rectangles "       
+
 
 print(calcul_sol(10,1,"au moins"))
 print(calcul_sol(10,0,"exactement"))

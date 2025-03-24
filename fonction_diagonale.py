@@ -1,5 +1,6 @@
 from math import sqrt
 
+
 def diagonale(poly):
     """Calcule la longueur des diagonales d'un rectangle 
     Entrée: tuple (a, b)
@@ -11,5 +12,3 @@ def diagonale(poly):
     if abs(e-round(e)) < 0.1 * (10**-6):
         return e
     return None
-
-    

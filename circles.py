@@ -1,7 +1,7 @@
 from math import sqrt
 import matplotlib.pyplot as plt
 from fonction_repere import repere
-from rectangles_diag_entière import liste_rect
+
 
 def check_intersections(long, larg):
     """Renvoie une liste de tuple contenant les coordonnes des points d'intersection des 2 cercles
@@ -22,6 +22,7 @@ def check_intersections(long, larg):
                     intersections.append((xm,-ym))
     #print (intersections)                
     return intersections
+
 
 def verif_inter_3_4(intersections, rect):
     """Renvoie un tuple contenant le point d'inetrsection des 4 cercles

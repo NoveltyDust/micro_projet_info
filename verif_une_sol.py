@@ -5,5 +5,3 @@ def verif_une_sol (e):
     if e % 2 == 0:
         return True
     return False
-
-    
