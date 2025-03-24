@@ -83,7 +83,3 @@ def trace_rectangle_et_cercles(a, b):
     plt.title("Rectangle, Cercles et Intersections")
     plt.grid()
     plt.show()
-
-# Exemple d'utilisation
-
-trace_rectangle_et_cercles(28,96)
