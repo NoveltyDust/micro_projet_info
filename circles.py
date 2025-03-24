@@ -12,8 +12,8 @@ def check_intersections(long, larg):
     intersections = []
     for i in range(1,a+1):
         for j in range(1,a+1):
-            xm = (i**2 - j**2 + a**2) / (2 * a)
-            ymcar = i**2-xm**2
+            xm = (i*i - j*j + a*a) / (2 * a)
+            ymcar = i*i-xm*xm
             if ymcar > 0:
                 ym = sqrt(ymcar)
                 if larg!=0:
@@ -26,7 +26,7 @@ def check_intersections(long, larg):
 def verif_inter_3_4(intersections, rect):
     """Renvoie un tuple contenant le point d'inetrsection des 4 cercles
     entrée : intersections(list), rect(tuple)
-    sortie: tuple """
+    sortie: point_inter (list) """
     co = repere(rect)
     C, D = co[2], co[3]
     x_c ,y_c = C    
@@ -39,8 +39,10 @@ def verif_inter_3_4(intersections, rect):
             for j in range (1,max(a,b)):
                 if (abs((xm- x_c) * (xm- x_c) + (ym- y_c) * (ym- y_c) - i*i) < (10 **-9)) and (abs((xm- x_d) * (xm- x_d) + (ym- y_d) * (ym- y_d) - j*j) <(10 **-9)) and (0<ym<b) and (0<xm<a):
                     point_inter.append((xm,ym))
-    print ("inter cercles (rect :",rect,"):",point_inter)
+    #print ("inter cercles (rect :",rect,"):",point_inter)
     return point_inter
+ 
+
 
 def trace_rectangle_et_cercles(a, b):
     
