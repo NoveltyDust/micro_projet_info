@@ -11,6 +11,3 @@ def liste_rect(N):
                 rect.append((a,b))
 
     return rect
-                
-
-print(liste_rect(200))

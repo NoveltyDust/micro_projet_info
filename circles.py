@@ -41,15 +41,6 @@ def verif_inter_3_4(intersections, rect):
                     point_inter.append((xm,ym))
     print ("inter cercles (rect :",rect,"):",point_inter)
     return point_inter
- 
-#tests
-
-l_rectangle = liste_rect(10)
-for i in range (len(l_rectangle)):
-    verif_inter_3_4(check_intersections(l_rectangle[i][0],l_rectangle[i][1]), (l_rectangle[i][0],l_rectangle[i][1]))
-    
-
-
 
 def trace_rectangle_et_cercles(a, b):
     
@@ -83,8 +74,8 @@ def trace_rectangle_et_cercles(a, b):
             ax.plot(intersection[i][0], intersection[i][1], 'ro', label='Intersection')
     
     # Réglages de l'affichage
-    ax.set_xlim(-a, a + a)
-    ax.set_ylim(-b, b + b)
+    ax.set_ylim(-a, a + a)
+    ax.set_xlim(-b, b + b)
     ax.set_aspect('equal')
     plt.legend()
     plt.title("Rectangle, Cercles et Intersections")
@@ -93,4 +84,4 @@ def trace_rectangle_et_cercles(a, b):
 
 # Exemple d'utilisation
 
-trace_rectangle_et_cercles(80,39)
+trace_rectangle_et_cercles(28,96)
