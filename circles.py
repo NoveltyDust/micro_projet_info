@@ -1,5 +1,4 @@
 from math import sqrt
-import matplotlib.pyplot as plt
 from fonction_repere import repere
 
 
@@ -50,6 +49,7 @@ def trace_rectangle_et_cercles(a, b):
     #Trace un rectangle de dimensions a x b, les cercles centrés sur ses sommets,
     #avec des rayons allant de 1 à a, et affiche les intersections.
     
+    import matplotlib.pyplot as plt
     rect = (a, b)
     co = repere(rect)
     
