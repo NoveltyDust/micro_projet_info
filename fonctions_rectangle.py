@@ -10,6 +10,7 @@ ainsi qu'une fonction offrant une interactivité pour la suite du projet (add_ro
 from csv import writer
 from math import sqrt
 
+
 def liste_rect(N):
     """
     Renvoie une liste de tuple contenant les dimensions d'un rectangle de cotes entiers <= N et de diagonales entieres.

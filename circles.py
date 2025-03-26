@@ -54,7 +54,7 @@ def verif_inter_3_4(intersections, a, b):
     """
     
     # On définit les valeurs nécessaires
-    co = repere(b, a)
+    co = repere(a, b)
     C, D = co[2], co[3]
     x_c ,y_c = C    
     x_d, y_d = D
@@ -84,7 +84,7 @@ def trace_rectangle_et_cercles(a, b):
     
     # On importe le module et on récupère les coordonnées
     import matplotlib.pyplot as plt
-    co = repere(b, a)
+    co = repere(a, b)
     
     # Création de la figure
     fig, ax = plt.subplots(figsize=(8, 8))
