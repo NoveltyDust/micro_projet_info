@@ -1,56 +1,80 @@
+
+# On importe les modules
 from math import sqrt
-from fonction_repere import repere
+from fonctions_rectangle import repere
 
 
-def check_intersections(long, larg):
-    """Renvoie une liste de tuple contenant les coordonnes des points d'intersection des 2 cercles
-    dont les origines sont : (0,0) et (a,0), a est la longueur du rectangle. (Rayon variable)
-    entree: long(int), larg(int)
-    sortie : intersections (list)"""
-    a = max(long,larg)
+def check_intersections(a):
+    """
+    Renvoie une liste de tuple contenant les coordonnées des points d'intersection des 2 cercles basé sur le côté maximal du rectangle.
+
+    entree : long:int, larg:int
+    sortie : intersections:list
+    """
+    
+    # On définit la liste pour les intersections
     intersections = []
+    
+    # Boucle de la fonction
     for i in range(1,a+1):
         for j in range(1,a+1):
+            
+            # On définit les coordonnées de cercles
             xm = (i*i - j*j + a*a) / (2 * a)
             ymcar = i*i-xm*xm
+            
             if ymcar > 0:
+                
                 ym = sqrt(ymcar)
-                if larg!=0:
+                
+                if a!=0:
+                    
                     intersections.append((xm, ym))
+                    
                 else:
+                    
                     intersections.append((xm,-ym))
-    #print (intersections)                
+    
+    # On retourne la liste                         
     return intersections
 
 
-def verif_inter_3_4(intersections, rect):
-    """Renvoie un tuple contenant le point d'inetrsection des 4 cercles
-    entrée : intersections(list), rect(tuple)
-    sortie: point_inter (list) """
-    co = repere(rect)
+def verif_inter_3_4(intersections, a, b):
+    """
+    Renvoie un tuple contenant le point d'intersection des 4 cercles.
+    
+    entrée : intersections:list, rect:tuple
+    sortie : point_inter:list
+    """
+    
+    # On définit les valeurs nécessaires
+    co = repere(b, a)
     C, D = co[2], co[3]
     x_c ,y_c = C    
     x_d, y_d = D
     rect = sorted(rect, reverse=True)
-    a , b = rect
     point_inter = []
+    
+    # Boucle de la fonction
     for xm, ym in intersections:
         for i in range (1,max(a,b)) :
             for j in range (1,max(a,b)):
                 if (abs((xm- x_c) * (xm- x_c) + (ym- y_c) * (ym- y_c) - i*i) < (10 **-9)) and (abs((xm- x_d) * (xm- x_d) + (ym- y_d) * (ym- y_d) - j*j) <(10 **-9)) and (0<ym<b) and (0<xm<a):
                     point_inter.append((xm,ym))
-    #print ("inter cercles (rect :",rect,"):",point_inter)
-    return point_inter
+
+    return point_inter # On retourne la liste des points
  
 
 def trace_rectangle_et_cercles(a, b):
+    """
+    Trace un rectangle de longueur b et de largeur a, les cercles centrées sur ses sommets,
+    avec des rayons allant de 1 à a, et affiche les intersections.
     
-    #Trace un rectangle de dimensions a x b, les cercles centrés sur ses sommets,
-    #avec des rayons allant de 1 à a, et affiche les intersections.
+    entree : a:int, b:int
+    """
     
     import matplotlib.pyplot as plt
-    rect = (a, b)
-    co = repere(rect)
+    co = repere(b, a)
     
     # Création de la figure
     fig, ax = plt.subplots(figsize=(8, 8))
@@ -67,7 +91,7 @@ def trace_rectangle_et_cercles(a, b):
             ax.add_patch(cercle)
     
     # Rechercher les intersections des cercles
-    intersections = check_intersections(a,b)
+    intersections = check_intersections(b)
     intersection = verif_inter_3_4(intersections, rect)
     
     # Tracer les intersections

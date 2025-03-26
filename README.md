@@ -15,4 +15,5 @@ Comment utiliser le code?
 - Aller dans main.py
 - Lancer le code (préférablement avec pypy)
 - Choisir les valeurs voulues
-- Attendre le résultat
+- Le résultat est affiché dans le terminal, et un fichier csv est créé avec
+  la longueur, la largeur, et le nombre de solutions par rectangle.
