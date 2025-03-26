@@ -43,7 +43,6 @@ def verif_inter_3_4(intersections, rect):
     return point_inter
  
 
-
 def trace_rectangle_et_cercles(a, b):
     
     #Trace un rectangle de dimensions a x b, les cercles centrés sur ses sommets,
