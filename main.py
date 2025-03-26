@@ -5,10 +5,12 @@ Centre du projet : En lançant le programme on peut obtenir le résultat souhait
 
 """
 
+
 # On importe les méthodes et fonctions nécessaires
 from circles import verif_inter_3_4, check_intersections
 from fonctions_rectangle import liste_rect, add_rows
 from time import time
+
 
 def calcul_sol(cote_lim=int, N=int, E=str):
     """
@@ -51,15 +53,15 @@ def calcul_sol(cote_lim=int, N=int, E=str):
             
     return (duree, nbr_solution, len(l_rectangle)) # On retourne les variables utiles
 
+
 # Phase de paramètrage des entrées
-print()
-lim = int(input("Entrez la \033[1m longueur maximale entiere \033[0m souhaitee : "))
-print()
-sol_min = int(input("Combien de \033[1m solutions entieres \033[0m souhaitez-vous obtenir pour les rectangles? "))
-print()
-categorie = input("Souhaitez-vous trouver les rectangles avec \033[1m au moins \033[0m ou \033[1m exactement \033[0m ce nombre de solutions? ").lower()
+lim = int(input("\nEntrez la \033[1m longueur maximale entiere \033[0m souhaitee : "))
+sol_min = int(input("\nCombien de \033[1m solutions entieres \033[0m souhaitez-vous obtenir pour les rectangles? "))
+categorie = input("\nSouhaitez-vous trouver les rectangles avec \033[1m au moins \033[0m ou \033[1m exactement \033[0m ce nombre de solutions? ").lower()
+
 
 solutions = calcul_sol(lim,sol_min,categorie) # On lance la fonction principale
+
 
 # On affiche le résultat
 print("\n\n*******************START*******************")

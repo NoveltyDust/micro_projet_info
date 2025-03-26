@@ -6,6 +6,7 @@ On a aussi une fonction de visualisation afin de pouvoir voir les résultats au 
 
 """
 
+
 # On importe les modules
 from math import sqrt
 from fonctions_rectangle import repere
@@ -19,8 +20,7 @@ def check_intersections(a):
     sortie : intersections:list
     """
     
-    # On définit la liste pour les intersections
-    intersections = []
+    intersections = [] # On définit la liste pour les intersections
     
     # Boucle de la fonction
     for i in range(1,a+1):
@@ -30,17 +30,10 @@ def check_intersections(a):
             xm = (i*i - j*j + a*a) / (2 * a)
             ymcar = i*i-xm*xm
             
-            if ymcar > 0:
+            if ymcar > 0: # On vérifie qu'il y a des solutions
                 
                 ym = sqrt(ymcar)
-                
-                if a!=0:
-                    
-                    intersections.append((xm, ym))
-                    
-                else:
-                    
-                    intersections.append((xm,-ym))
+                intersections.append((xm, ym)) # On met à jour la liste d'intersections
     
     return intersections # On retourne la liste
 
@@ -66,7 +59,7 @@ def verif_inter_3_4(intersections, a, b):
             for j in range (1,b):
                 
                 # On vérifie que les points d'intersections trouvés fonctionnent pour les points 3 et 4 aussi
-                if (abs((xm- x_c) * (xm- x_c) + (ym- y_c) * (ym- y_c) - i*i) < (10 **-9)) and (abs((xm- x_d) * (xm- x_d) + (ym- y_d) * (ym- y_d) - j*j) <(10 **-9)) and (0<ym<b) and (0<xm<a):
+                if (abs((xm- x_c) * (xm- x_c) + (ym- y_c) * (ym- y_c) - i*i) < (10 **-9)) and (abs((xm- x_d) * (xm- x_d) + (ym- y_d) * (ym- y_d) - j*j) <(10 **-9)) and (0<ym<a) and (0<xm<b):
                     
                     point_inter.append((xm,ym)) # On met à jour la liste de points
 

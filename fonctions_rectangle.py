@@ -6,6 +6,7 @@ ainsi qu'une fonction offrant une interactivité pour la suite du projet (add_ro
 
 """
 
+
 # On importe les méthodes et fonctions
 from csv import writer
 from math import sqrt
@@ -34,6 +35,7 @@ def liste_rect(N):
     
     return rect # On retourne la liste de rectangles
 
+
 def repere(b,a):
     """
     Renvoie une liste contenant les coordonnées de chaque sommet d'un rectangle donné.
@@ -43,6 +45,7 @@ def repere(b,a):
     """
     
     return (0, 0), (a, 0), (a, b), (0, b) # On retourne les coordonnées
+
 
 def add_rows(values, csvfile):
     """
