@@ -1,5 +1,14 @@
-from math import sqrt
+"""
+Fichier contenant les fonctions secondaires du projet.
 
+On a regroupé les fonctions qui sont complémentaires à létude de cercles, 
+ainsi qu'une fonction offrant une interactivité pour la suite du projet (add_rows)
+
+"""
+
+# On importe les méthodes et fonctions
+from csv import writer
+from math import sqrt
 
 def liste_rect(N):
     """
@@ -33,3 +42,15 @@ def repere(b,a):
     """
     
     return (0, 0), (a, 0), (a, b), (0, b) # On retourne les coordonnées
+
+def add_rows(values, csvfile):
+    """
+    Ecrit des lignes dans un fichier csv donné.
+    
+    Entree : values:list, csvfile:str
+    Sortie : None
+    """
+    
+    with open(csvfile,'w',newline='') as file: # On ouvre les fichier en mode "écriture"
+        add = writer(file,delimiter=';')
+        add.writerows(values) # On écrit les valeurs dans le fichier

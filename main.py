@@ -1,11 +1,13 @@
 """
+Fichier principal du projet.
+
 Centre du projet : En lançant le programme on peut obtenir le résultat souhaité (sauf visualisation).
+
 """
 
-# On importe les fonctions nécessaires.
+# On importe les méthodes et fonctions nécessaires
 from circles import verif_inter_3_4, check_intersections
-from fonctions_rectangle import liste_rect
-from csv_manage import add_rows
+from fonctions_rectangle import liste_rect, add_rows
 from time import time
 
 def calcul_sol(cote_lim=int, N=int, E=str):

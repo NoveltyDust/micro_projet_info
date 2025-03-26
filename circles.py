@@ -1,3 +1,10 @@
+"""
+Fichier contenant les fonctions principales du projet.
+
+On a regroupé toutes les fonctions importantes, notammment lié à l'étude d'intersections de cercles.
+On a aussi une fonction de visualisation afin de pouvoir voir les résultats au besoin.
+
+"""
 
 # On importe les modules
 from math import sqrt
@@ -35,8 +42,7 @@ def check_intersections(a):
                     
                     intersections.append((xm,-ym))
     
-    # On retourne la liste                         
-    return intersections
+    return intersections # On retourne la liste
 
 
 def verif_inter_3_4(intersections, a, b):
@@ -52,15 +58,17 @@ def verif_inter_3_4(intersections, a, b):
     C, D = co[2], co[3]
     x_c ,y_c = C    
     x_d, y_d = D
-    rect = sorted(rect, reverse=True)
     point_inter = []
     
     # Boucle de la fonction
     for xm, ym in intersections:
-        for i in range (1,max(a,b)) :
-            for j in range (1,max(a,b)):
+        for i in range (1,b) :
+            for j in range (1,b):
+                
+                # On vérifie que les points d'intersections trouvés fonctionnent pour les points 3 et 4 aussi
                 if (abs((xm- x_c) * (xm- x_c) + (ym- y_c) * (ym- y_c) - i*i) < (10 **-9)) and (abs((xm- x_d) * (xm- x_d) + (ym- y_d) * (ym- y_d) - j*j) <(10 **-9)) and (0<ym<b) and (0<xm<a):
-                    point_inter.append((xm,ym))
+                    
+                    point_inter.append((xm,ym)) # On met à jour la liste de points
 
     return point_inter # On retourne la liste des points
  
@@ -71,8 +79,10 @@ def trace_rectangle_et_cercles(a, b):
     avec des rayons allant de 1 à a, et affiche les intersections.
     
     entree : a:int, b:int
+    sortie : None
     """
     
+    # On importe le module et on récupère les coordonnées
     import matplotlib.pyplot as plt
     co = repere(b, a)
     
@@ -92,7 +102,7 @@ def trace_rectangle_et_cercles(a, b):
     
     # Rechercher les intersections des cercles
     intersections = check_intersections(b)
-    intersection = verif_inter_3_4(intersections, rect)
+    intersection = verif_inter_3_4(intersections, a, b)
     
     # Tracer les intersections
     if intersection:
