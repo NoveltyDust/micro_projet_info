@@ -12,11 +12,11 @@ from fonctions_rectangle import liste_rect, add_rows
 from time import time
 
 
-def calcul_sol(cote_lim=int, N=int, E=str):
+def calcul_sol(cote_lim=int, N=int, E=str,p=str):
     """
     Renvoie le nombres de rectangles répondant aux conditions données, ainsi que le nombre de rectangles total avec comme longueur maximale cote_lim.
     
-    entree : cote_lim:int, N:int, E:str
+    entree : cote_lim:int, N:int, E:str, p:str
     sortie : (duree:float, nbr_solution:int, len(l_rectangle):int):tuple
     """
     
@@ -27,7 +27,7 @@ def calcul_sol(cote_lim=int, N=int, E=str):
     start=time()
     values = [["Largeur","Longueur","Nombres de points"]]
     l_solution = []
-    l_rectangle = liste_rect(cote_lim)
+    l_rectangle = liste_rect(cote_lim,p)
     nbr_solution = 0
     
     # Boucle de la fonction
@@ -37,7 +37,7 @@ def calcul_sol(cote_lim=int, N=int, E=str):
         l_solution = verif_inter_3_4(check_intersections(b), a, b) # On récupère les intersections entre les 4 cercles
         
         # On met à jour les valeurs pour le csv
-        values.append([a,b,len(l_solution)])
+        values.append([a,b,len(l_solution),l_solution])
         
         if E=="exactement": # On détermine la méthode à utiliser
             if len(l_solution) == N:
@@ -56,17 +56,22 @@ def calcul_sol(cote_lim=int, N=int, E=str):
 
 # Phase de paramètrage des entrées
 lim = int(input("\nEntrez la \033[1m longueur maximale entiere \033[0m souhaitee : "))
+p =  input("\nSouhaitez-vous trouver des rectangles avec des cotes premiers entre eux? ").lower()
 sol_min = int(input("\nCombien de \033[1m solutions entieres \033[0m souhaitez-vous obtenir pour les rectangles? "))
 categorie = input("\nSouhaitez-vous trouver les rectangles avec \033[1m au moins \033[0m ou \033[1m exactement \033[0m ce nombre de solutions? ").lower()
 
 
-solutions = calcul_sol(lim,sol_min,categorie) # On lance la fonction principale
+solutions = calcul_sol(lim,sol_min,categorie,p) # On lance la fonction principale
 
 
 # On affiche le résultat
 print("\n\n*******************START*******************")
 print(f"\n \033[1m Duree de traitement : \033[0m {solutions[0]} secondes.")
-print(f"Dans le cas de rectangles a cote maximum de {lim}, on a trouve {solutions[1]} rectangles parmi les  {solutions[2]} disponibles qui avaient {categorie} {sol_min} solutions.")
+if p == 'non':
+    print(f"Dans le cas de rectangles a cote maximum de {lim}, on a trouve {solutions[1]} rectangles parmi les  {solutions[2]} disponibles qui avaient {categorie} {sol_min} solutions.")
+else:
+     print(f"Dans le cas de rectangles a cote premier entre eux inferieur a {lim}, on a trouve {solutions[1]} rectangles parmi les  {solutions[2]} disponibles qui avaient {categorie} {sol_min} solutions.")
+
 print("\n********************END********************\n")
 
 
